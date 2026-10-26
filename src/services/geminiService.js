@@ -235,7 +235,7 @@ export async function analyzeVendorQuotes(vendorType, quotes, eventData) {
 }
 
 /**
- * 5. BONUS FEATURE: "WHAT-IF" SCENARIO RIPPLE SIMULATOR
+ * 5. PREDICTIVE "WHAT-IF" SCENARIO RIPPLE SIMULATOR
  * Calculates holistic ripple effect of modifying core variables
  */
 export function simulateScenarioRipple({ baseEvent, deltaGuests, venueTypeShift, tierMultiplier }) {

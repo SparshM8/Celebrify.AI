@@ -40,9 +40,9 @@ export default function OverviewDashboard({ onSwitchTab, onOpenWizard }) {
           <div style={{ marginBottom: '20px' }}>
             <span className="pill-badge" style={{ borderColor: 'rgba(168, 85, 247, 0.4)', background: 'rgba(168, 85, 247, 0.08)' }}>
               <span className="pulse-dot" />
-              <span style={{ color: '#E9D5FF', fontWeight: 600 }}>GenAI Celebration Orchestration Engine</span>
+              <span style={{ color: '#E9D5FF', fontWeight: 600 }}>Autonomous Event Orchestration Engine</span>
               <span style={{ color: 'var(--text-muted)' }}>•</span>
-              <span style={{ color: '#FCD34D' }}>Hack2Skill AI Challenge 5 ↗</span>
+              <span style={{ color: '#FCD34D' }}>Powered by Gemini 3.8 Flash ⚡</span>
             </span>
           </div>
 

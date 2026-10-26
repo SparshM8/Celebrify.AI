@@ -342,7 +342,7 @@ export default function WizardModal({ isOpen, onClose }) {
           <div>
             <div className="input-group">
               <label className="input-label" htmlFor="event-cultural-input">
-                Cultural, Religious, or Family Customs (Bonus High-Impact)
+                Cultural, Religious, or Family Traditions & Rituals
               </label>
               <textarea
                 id="event-cultural-input"

@@ -35,7 +35,7 @@ export default function ScenarioSimulatorView() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#C084FC', fontSize: '0.825rem', fontWeight: 600 }}>
               <Sparkles size={16} />
-              <span>High-Impact Bonus Feature: Scenario Analysis & Ripple Simulator</span>
+              <span>Predictive Sensitivity & Variable Ripple Simulator</span>
             </div>
             <h2 style={{ fontSize: '1.6rem', marginTop: '4px' }}>
               "What-If" Sensitivity & Ripple Effect Engine

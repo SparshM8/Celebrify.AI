@@ -3,8 +3,8 @@ import { useEvent } from '../context/EventContext';
 import { Sparkles, Calendar, PlusCircle, Key, FileText, Printer, CheckCircle2 } from 'lucide-react';
 import { getApiKey } from '../services/geminiService';
 
-export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit, onOpenPrint }) {
-  const { events, currentEvent, currentEventId, setCurrentEventId } = useEvent();
+export default function Navbar({ onOpenWizard, onOpenApiKey }) {
+  const { events, currentEventId, setCurrentEventId } = useEvent();
   const hasApiKey = Boolean(getApiKey());
 
   return (
@@ -14,7 +14,7 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
       zIndex: 100,
       backdropFilter: 'blur(20px)',
       WebkitBackdropFilter: 'blur(20px)',
-      background: 'rgba(5, 8, 17, 0.82)',
+      background: 'rgba(5, 8, 17, 0.85)',
       borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
       padding: '14px 28px',
       marginBottom: '20px',
@@ -48,12 +48,12 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
               <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.025em', color: '#FFF' }}>
                 Celebrify<span className="gradient-text">.AI</span>
               </span>
-              <span className="pill-badge" style={{ fontSize: '0.68rem', padding: '2px 8px', color: '#C084FC', borderColor: 'rgba(192, 132, 252, 0.3)' }}>
-                Challenge 5
+              <span className="pill-badge" style={{ fontSize: '0.68rem', padding: '2px 8px', color: '#A5B4FC', borderColor: 'rgba(165, 180, 252, 0.25)' }}>
+                Enterprise AI
               </span>
             </div>
             <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
-              GenAI Celebration & Event Planner Assistant
+              Autonomous Celebration & Event Orchestrator
             </div>
           </div>
         </div>
@@ -61,7 +61,7 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
         {/* Quick Presets Pills */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
           <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, marginRight: '4px' }}>
-            Presets:
+            Celebration Presets:
           </span>
           {events.map(ev => {
             const isSelected = ev.id === currentEventId;
@@ -90,7 +90,7 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
         </div>
 
         {/* Action Tools */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           {/* API Key Status Pill */}
           <button 
             onClick={onOpenApiKey}
@@ -100,34 +100,19 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
               borderColor: hasApiKey ? 'rgba(16, 185, 129, 0.35)' : 'var(--border-glass)',
               cursor: 'pointer'
             }}
-            title="Configure Gemini API Key (or use built-in offline reasoning engine)"
+            title="Configure Gemini API Key"
           >
             <span className={hasApiKey ? "pulse-dot" : ""} style={{ width: '7px', height: '7px', borderRadius: '50%', background: hasApiKey ? '#10B981' : '#F59E0B' }} />
-            <span style={{ color: hasApiKey ? '#6EE7B7' : '#FCD34D', fontSize: '0.78rem' }}>
-              {hasApiKey ? 'Gemini Live' : 'AI Engine (Ready)'}
+            <span style={{ color: hasApiKey ? '#6EE7B7' : '#FCD34D', fontSize: '0.78rem', fontWeight: 600 }}>
+              {hasApiKey ? 'Gemini 3.8 Flash' : 'AI Reasoning Ready'}
             </span>
-          </button>
-
-          {/* Submission Kit Modal Button */}
-          <button 
-            onClick={onOpenSubmissionKit}
-            className="btn btn-secondary btn-sm"
-            style={{
-              background: 'rgba(99, 102, 241, 0.12)',
-              borderColor: 'rgba(99, 102, 241, 0.35)',
-              color: '#C7D2FE'
-            }}
-            title="Copy texts for Hack2Skill submission form"
-          >
-            <FileText size={14} color="#A5B4FC" />
-            <span>Submission Kit</span>
           </button>
 
           {/* New Plan Primary CTA */}
           <button 
             onClick={onOpenWizard}
             className="btn btn-primary btn-sm"
-            title="Create tailored celebration plan with AI"
+            title="Create tailored celebration plan"
           >
             <PlusCircle size={15} />
             <span>Plan Celebration ↗</span>

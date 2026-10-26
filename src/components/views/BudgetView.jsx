@@ -79,7 +79,7 @@ export default function BudgetView() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-gold)', fontSize: '0.825rem', fontWeight: 600 }}>
               <IndianRupee size={16} />
-              <span>Mandatory Criterion #2: Dynamic Constraint & Tradeoff Engine</span>
+              <span>Dynamic Constraint & Tradeoff Engine</span>
             </div>
             <h2 style={{ fontSize: '1.6rem', marginTop: '4px' }}>
               Budget Optimizer & Spend Allocation

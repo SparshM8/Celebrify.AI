@@ -89,7 +89,7 @@ Event Planning Team`;
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-gold)', fontSize: '0.825rem', fontWeight: 600 }}>
               <ShieldCheck size={16} />
-              <span>Mandatory Criterion #4: Vendor Coordination & Quote Comparison</span>
+              <span>Vendor Coordination & Objective Quote Matrix</span>
             </div>
             <h2 style={{ fontSize: '1.6rem', marginTop: '4px' }}>
               Vendor Hub & Negotiation Matrix

@@ -3,8 +3,6 @@ import { EventProvider, useEvent } from './context/EventContext';
 import Navbar from './components/Navbar';
 import WizardModal from './components/WizardModal';
 import ApiKeyModal from './components/ApiKeyModal';
-import SubmissionKitModal from './components/SubmissionKitModal';
-import JudgeTourBar from './components/JudgeTourBar';
 
 import OverviewDashboard from './components/views/OverviewDashboard';
 import BudgetView from './components/views/BudgetView';
@@ -23,14 +21,13 @@ function MainApp() {
   // Modals
   const [isWizardOpen, setIsWizardOpen] = useState(false);
   const [isApiKeyOpen, setIsApiKeyOpen] = useState(false);
-  const [isSubmissionKitOpen, setIsSubmissionKitOpen] = useState(false);
 
   const TABS = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
     { id: 'budget', label: 'Budget & Tradeoffs (₹)', icon: IndianRupee },
-    { id: 'timeline', label: 'Cascading Timeline', icon: Clock },
+    { id: 'timeline', label: 'Timeline & Milestones', icon: Clock },
     { id: 'vendors', label: 'Vendor Matrix', icon: ShieldCheck },
-    { id: 'scenario', label: 'What-If Simulator', icon: Sliders, isBonus: true },
+    { id: 'scenario', label: 'What-If Simulator', icon: Sliders },
     { id: 'creative', label: 'Creative Studio', icon: Sparkles }
   ];
 
@@ -40,8 +37,6 @@ function MainApp() {
       <Navbar
         onOpenWizard={() => setIsWizardOpen(true)}
         onOpenApiKey={() => setIsApiKeyOpen(true)}
-        onOpenSubmissionKit={() => setIsSubmissionKitOpen(true)}
-        onOpenPrint={() => setActiveTab('export')}
       />
 
       <main style={{ maxWidth: '1440px', width: '100%', margin: '0 auto', padding: '0 24px 60px 24px', flex: 1 }}>
@@ -52,7 +47,7 @@ function MainApp() {
             alignItems: 'center',
             gap: '8px',
             padding: '8px 12px',
-            marginBottom: '20px',
+            marginBottom: '24px',
             overflowX: 'auto',
             background: 'rgba(13, 19, 36, 0.75)',
             backdropFilter: 'blur(20px)',
@@ -76,36 +71,17 @@ function MainApp() {
                     border: isActive ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid transparent',
                     color: isActive ? '#FFFFFF' : 'var(--text-secondary)',
                     boxShadow: isActive ? '0 4px 18px rgba(139, 92, 246, 0.5)' : 'none',
-                    padding: '8px 18px',
+                    padding: '8px 20px',
                     borderRadius: 'var(--radius-full)',
-                    fontSize: '0.85rem'
+                    fontSize: '0.875rem'
                   }}
                 >
                   <Icon size={15} />
                   <span>{tab.label}</span>
-                  {tab.isBonus && (
-                    <span style={{
-                      fontSize: '0.62rem',
-                      background: 'rgba(245, 158, 11, 0.25)',
-                      color: '#FCD34D',
-                      border: '1px solid rgba(245, 158, 11, 0.45)',
-                      borderRadius: 'var(--radius-full)',
-                      padding: '1px 6px',
-                      marginLeft: '4px',
-                      fontWeight: 700
-                    }}>
-                      BONUS
-                    </span>
-                  )}
                 </button>
               );
             })}
           </nav>
-        )}
-
-        {/* Evaluator & Judge Quick Tour Bar */}
-        {activeTab !== 'export' && (
-          <JudgeTourBar onSelectTab={setActiveTab} onOpenPrint={() => setActiveTab('export')} />
         )}
 
         {/* Dynamic Views */}
@@ -128,16 +104,15 @@ function MainApp() {
         textAlign: 'center',
         padding: '24px',
         borderTop: '1px solid var(--border-glass)',
-        fontSize: '0.8rem',
+        fontSize: '0.85rem',
         color: 'var(--text-muted)'
       }}>
-        Celebrify AI • [Challenge 5] Celebration & Event Planner • Powered by Google Gemini AI Engine
+        © 2026 Celebrify.AI — Intelligent Celebration Orchestration Platform. All rights reserved.
       </footer>
 
       {/* Modals */}
       <WizardModal isOpen={isWizardOpen} onClose={() => setIsWizardOpen(false)} />
       <ApiKeyModal isOpen={isApiKeyOpen} onClose={() => setIsApiKeyOpen(false)} />
-      <SubmissionKitModal isOpen={isSubmissionKitOpen} onClose={() => setIsSubmissionKitOpen(false)} />
 
       {/* Toast Notification */}
       {toast && (

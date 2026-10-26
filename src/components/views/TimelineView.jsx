@@ -51,7 +51,7 @@ export default function TimelineView() {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-gold)', fontSize: '0.825rem', fontWeight: 600 }}>
               <Clock size={16} />
-              <span>Mandatory Criterion #3: Sequence-Based Dynamic Scheduling</span>
+              <span>Critical Path & Dynamic Sequence Scheduling</span>
             </div>
             <h2 style={{ fontSize: '1.6rem', marginTop: '4px' }}>
               Cascading Dependency Timeline & Run of Show
