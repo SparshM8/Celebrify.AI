@@ -115,8 +115,8 @@ npm test
 ---
 
 ## ⚖️ 8. Assumptions Made
-1. **Currency & Localization**: Defaults to USD ($) but supports INR (₹), EUR (€), and GBP (£) with dynamic cost factors.
-2. **Standard Event Ratios**: 1 table per 8-10 attendees; 1 service staff per 15 guests; standard 10-15% contingency reserve.
+1. **Currency & Localization**: Tailored natively for Indian Rupees (`₹`), preloaded with realistic event tiers (e.g., ₹15,00,000 Wedding, ₹1,50,000 Milestone Birthday, ₹6,00,000 Community Festival).
+2. **Standard Event Ratios**: 1 table per 8 attendees; 1 service staff per 15 guests; standard 10-15% contingency reserve.
 3. **Data Storage**: Client-side `localStorage` ensures all custom plans, logged expenses, and vendor quotes persist across reloads without requiring server setup.
 
 ---
