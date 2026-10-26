@@ -42,4 +42,15 @@ describe('Dynamic Cascading Task Delay Engine', () => {
     expect(task5.cascadedDelayDays).toBeUndefined();
     expect(task5.isCriticalRisk).toBeUndefined();
   });
+
+  it('handles non-existent task IDs gracefully without throwing errors', () => {
+    const result = calculateCascadingTaskDelays(sampleTasks, 'invalid-id-999', 10);
+    expect(result).toHaveLength(sampleTasks.length);
+    expect(result.some(t => t.isDelayed)).toBe(false);
+  });
+
+  it('handles empty task lists gracefully', () => {
+    const result = calculateCascadingTaskDelays([], 'task-1', 10);
+    expect(result).toEqual([]);
+  });
 });

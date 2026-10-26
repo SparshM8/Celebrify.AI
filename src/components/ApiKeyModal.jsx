@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { getApiKey, setApiKey } from '../services/geminiService';
 import { ShieldCheck, Key, CheckCircle2, AlertCircle, X, Sparkles } from 'lucide-react';
 
@@ -6,6 +6,16 @@ export default function ApiKeyModal({ isOpen, onClose }) {
   const [keyInput, setKeyInput] = useState(getApiKey());
   const [testing, setTesting] = useState(false);
   const [testResult, setTestResult] = useState(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 

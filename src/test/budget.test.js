@@ -26,4 +26,21 @@ describe('Budget Calculation & Allocation Engine', () => {
     expect(isOverspent).toBe(true);
     expect(catering.spent - catering.allocated).toBe(300);
   });
+
+  it('handles events with zero expenses at inception', () => {
+    const freshCategories = [
+      { id: '1', name: 'Venue', allocated: 5000, spent: 0 },
+      { id: '2', name: 'Decor', allocated: 2000, spent: 0 }
+    ];
+    const totalSpent = freshCategories.reduce((sum, c) => sum + c.spent, 0);
+    expect(totalSpent).toBe(0);
+    expect(freshCategories.every(c => c.spent <= c.allocated)).toBe(true);
+  });
+
+  it('calculates accurate percentage split across categories', () => {
+    const totalAllocated = sampleCategories.reduce((sum, c) => sum + c.allocated, 0);
+    const percentages = sampleCategories.map(c => Math.round((c.allocated / totalAllocated) * 100));
+    const sumPct = percentages.reduce((a, b) => a + b, 0);
+    expect(sumPct).toBeCloseTo(100, 0);
+  });
 });

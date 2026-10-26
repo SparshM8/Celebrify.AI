@@ -57,4 +57,47 @@ describe('What-If Scenario Ripple Simulator', () => {
     expect(result.timelineUrgency).toBe('High Urgency');
     expect(result.timelineAdvice).toContain('catering headcount');
   });
+
+  it('enforces a safe minimum guest floor of 10 attendees even with extreme negative deltas', () => {
+    const result = simulateScenarioRipple({
+      baseEvent,
+      deltaGuests: -150, // 100 -> negative
+      venueTypeShift: 'Standard Ballroom',
+      tierMultiplier: 1.0
+    });
+
+    expect(result.newGuests).toBe(10);
+    expect(result.tablesNeeded).toBe(2);
+  });
+
+  it('applies luxury tier multiplier (1.5x) to catering calculations', () => {
+    const standardResult = simulateScenarioRipple({
+      baseEvent,
+      deltaGuests: 0,
+      venueTypeShift: 'Standard Ballroom',
+      tierMultiplier: 1.0
+    });
+
+    const luxuryResult = simulateScenarioRipple({
+      baseEvent,
+      deltaGuests: 0,
+      venueTypeShift: 'Standard Ballroom',
+      tierMultiplier: 1.5
+    });
+
+    expect(luxuryResult.breakdownChanges.catering.projected).toBeGreaterThan(
+      standardResult.breakdownChanges.catering.projected
+    );
+  });
+
+  it('calculates proper staffing ratios (1 server per 15 guests)', () => {
+    const result = simulateScenarioRipple({
+      baseEvent,
+      deltaGuests: 50, // 150 guests
+      venueTypeShift: 'Standard Ballroom',
+      tierMultiplier: 1.0
+    });
+
+    expect(result.staffingRatioNeeded).toBe(10); // 150 / 15 = 10
+  });
 });

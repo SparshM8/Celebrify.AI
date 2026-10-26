@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useEvent } from '../context/EventContext';
 import { generateTailoredEventPlan } from '../services/geminiService';
 import { Sparkles, Calendar, Users, DollarSign, Heart, Accessibility, ArrowRight, ArrowLeft, X, Check } from 'lucide-react';
@@ -26,6 +26,16 @@ export default function WizardModal({ isOpen, onClose }) {
   const { addEvent } = useEvent();
   const [step, setStep] = useState(1);
   const [isGenerating, setIsGenerating] = useState(false);
+
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') onClose();
+    };
+    if (isOpen) {
+      window.addEventListener('keydown', handleKeyDown);
+      return () => window.removeEventListener('keydown', handleKeyDown);
+    }
+  }, [isOpen, onClose]);
 
   // Form State
   const [occasion, setOccasion] = useState("Wedding");
