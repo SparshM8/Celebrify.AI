@@ -13,15 +13,15 @@ export default function BudgetView() {
   const remaining = totalBudget - totalSpent;
 
   // Tradeoff Advisor State
-  const [targetCategory, setTargetCategory] = useState(categories[0]?.name || "Gourmet Catering & Wine");
-  const [cutAmount, setCutAmount] = useState(1500);
+  const [targetCategory, setTargetCategory] = useState(categories[0]?.name || "Gourmet Catering & Drinks");
+  const [cutAmount, setCutAmount] = useState(25000);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [tradeoffResult, setTradeoffResult] = useState(null);
 
   // New Category Modal / Input State
   const [showAddModal, setShowAddModal] = useState(false);
   const [newCatName, setNewCatName] = useState("");
-  const [newCatAllocated, setNewCatAllocated] = useState(1000);
+  const [newCatAllocated, setNewCatAllocated] = useState(50000);
   const [newCatNotes, setNewCatNotes] = useState("");
 
   const handleRunTradeoffAnalysis = async () => {
@@ -253,9 +253,9 @@ export default function BudgetView() {
               <input
                 id="cut-amount-slider"
                 type="range"
-                min="200"
-                max={Math.max(1000, (categories.find(c => c.name === targetCategory)?.allocated || 5000))}
-                step="100"
+                min="5000"
+                max={Math.max(10000, (categories.find(c => c.name === targetCategory)?.allocated || 100000))}
+                step="5000"
                 value={cutAmount}
                 onChange={e => setCutAmount(Number(e.target.value))}
               />

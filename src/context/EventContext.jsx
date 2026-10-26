@@ -7,14 +7,14 @@ export const INITIAL_PRESETS = [
     title: "Aria & Julian's Botanical Garden Wedding",
     occasion: "Wedding",
     date: "2026-11-14",
-    location: "Glasshouse Conservatory, Botanical Gardens",
-    currency: "$",
-    budget: 28000,
+    location: "Royal Glasshouse Conservatory & Lawn",
+    currency: "₹",
+    budget: 1500000,
     guestCount: 120,
     venueType: "Glasshouse Conservatory & Lawn",
     priorities: ["Gourmet Dining & Fine Wine", "Cinematic Photography & Film", "Romantic Ambience"],
-    culturalNuances: "Bilingual vows (English/Spanish), acoustic Spanish guitar ceremony, olive branch blessing ritual.",
-    accessibilityNeeds: "Step-free paved walkways for elderly grandparents, quiet sensory room, full gluten-free & nut-free catering tags.",
+    culturalNuances: "Bilingual vows (English/Hindi), acoustic instrumental ceremony, garland exchange ritual.",
+    accessibilityNeeds: "Step-free paved walkways for elderly grandparents, quiet sensory room, full vegetarian and Jain dietary labeling.",
     themeTitle: "Mediterranean Flora & Starlight Glass",
     conceptSummary: "An organic luxury celebration marrying classical conservatory architecture with romantic candlelight, cascading bougainvillea, and artisanal seasonal gastronomy.",
     colorPalette: [
@@ -25,13 +25,13 @@ export const INITIAL_PRESETS = [
       { name: "Midnight Sky", hex: "#0F172A", usage: "Evening lighting, formal tuxedos" }
     ],
     budgetCategories: [
-      { id: "cat-1", name: "Venue & Conservatory Hire", allocated: 9000, spent: 8500, notes: "Includes sound curfew waiver until 11 PM" },
-      { id: "cat-2", name: "Gourmet Catering & Wine", allocated: 8800, spent: 9100, notes: "Plated 3-course meal ($75/head) + bar package" },
-      { id: "cat-3", name: "Photo & Film Documentary", allocated: 4200, spent: 4000, notes: "10 hours dual camera coverage + highlight film" },
-      { id: "cat-4", name: "Floral Installations & Decor", allocated: 3200, spent: 2900, notes: "Suspended botanical cloud over head table" },
-      { id: "cat-5", name: "Live String Quartet & DJ", allocated: 1600, spent: 1600, notes: "Ceremony acoustic strings + 5hr evening DJ" },
-      { id: "cat-6", name: "Stationery & Favors", allocated: 600, spent: 450, notes: "Seed paper invitations & mini olive oil bottles" },
-      { id: "cat-7", name: "Contingency & Overtime Buffer", allocated: 600, spent: 0, notes: "Reserved for unexpected vendor load-in overtime" }
+      { id: "cat-1", name: "Venue & Conservatory Hire", allocated: 450000, spent: 425000, notes: "Includes sound curfew waiver until 11 PM" },
+      { id: "cat-2", name: "Gourmet Catering & Drinks", allocated: 480000, spent: 500000, notes: "Plated 3-course organic feast (₹3,500/head)" },
+      { id: "cat-3", name: "Photo & Film Documentary", allocated: 220000, spent: 210000, notes: "10 hours dual camera coverage + cinematic film" },
+      { id: "cat-4", name: "Floral Installations & Decor", allocated: 180000, spent: 165000, notes: "Suspended botanical cloud over stage" },
+      { id: "cat-5", name: "Live Acoustic Artists & DJ", allocated: 90000, spent: 90000, notes: "Ceremony acoustic strings + 5hr evening DJ" },
+      { id: "cat-6", name: "Stationery & Favors", allocated: 40000, spent: 35000, notes: "Seed paper invitations & mini keepsake hampers" },
+      { id: "cat-7", name: "Contingency & Overtime Buffer", allocated: 40000, spent: 0, notes: "Reserved for unexpected vendor overtime" }
     ],
     tasks: [
       { id: "task-w1", title: "Finalize Conservatory & Lawn Contract", phase: "6 Months Out", dueDate: "2026-05-15", status: "done", dependencies: [], isDelayed: false, delayDays: 0 },
@@ -49,7 +49,7 @@ export const INITIAL_PRESETS = [
         status: "booked",
         contact: "events@botanicglasshouse.org",
         quotes: [
-          { name: "Full Glasshouse & Lawn Package", price: 8500, rating: 4.9, highlights: "12-hr exclusive hire, dressing suite, tables & chairs included" }
+          { name: "Full Glasshouse & Lawn Package", price: 425000, rating: 4.9, highlights: "12-hr exclusive hire, dressing suite, tables & chairs included" }
         ]
       },
       {
@@ -59,8 +59,8 @@ export const INITIAL_PRESETS = [
         status: "booked",
         contact: "chef@heritagefarmtable.com",
         quotes: [
-          { name: "Plated 3-Course Organic Farm Menu", price: 9100, rating: 4.9, highlights: "Locally sourced, organic wine pairing, customized dietary tags" },
-          { name: "Family Style Harvest Feast", price: 7800, rating: 4.7, highlights: "Platters passed at tables, reduced service staff" }
+          { name: "Plated 3-Course Organic Farm Menu", price: 500000, rating: 4.9, highlights: "Locally sourced, organic juice pairing, customized dietary tags" },
+          { name: "Family Style Harvest Feast", price: 420000, rating: 4.7, highlights: "Platters passed at tables, reduced service staff" }
         ]
       },
       {
@@ -70,8 +70,8 @@ export const INITIAL_PRESETS = [
         status: "shortlisted",
         contact: "hello@luminacine.com",
         quotes: [
-          { name: "Cinematic Gold Package", price: 4000, rating: 4.9, highlights: "Dual shooters, drone aerials, raw archive + 6-min film" },
-          { name: "Essential Still Photography", price: 3000, rating: 4.6, highlights: "Single shooter, 8 hours, 500 edited stills" }
+          { name: "Cinematic Gold Package", price: 210000, rating: 4.9, highlights: "Dual shooters, drone aerials, raw archive + 6-min film" },
+          { name: "Essential Still Photography", price: 150000, rating: 4.6, highlights: "Single shooter, 8 hours, 500 edited stills" }
         ]
       },
       {
@@ -81,7 +81,7 @@ export const INITIAL_PRESETS = [
         status: "quote_received",
         contact: "bookings@aurasound.com",
         quotes: [
-          { name: "Ceremony Strings + Reception DJ", price: 1600, rating: 4.8, highlights: "Acoustic cello & guitar duo + full wireless mic setup" }
+          { name: "Ceremony Strings + Reception DJ", price: 90000, rating: 4.8, highlights: "Acoustic strings duo + full wireless sound setup" }
         ]
       }
     ]
@@ -92,15 +92,15 @@ export const INITIAL_PRESETS = [
     occasion: "Milestone Birthday",
     date: "2026-11-28",
     location: "Velvet Underground Warehouse Lounge",
-    currency: "$",
-    budget: 5000,
+    currency: "₹",
+    budget: 150000,
     guestCount: 55,
     venueType: "Industrial Loft / Lounge",
     priorities: ["Live DJ & Turntable Beats", "Custom Neon Photo Booth", "Interactive Cocktail Crafting"],
-    culturalNuances: "90s Golden Era Hip-Hop and Synthwave tribute, commemorative Polaroid guestbook wall.",
+    culturalNuances: "Retro Synthwave and Bollywood fusion tribute, commemorative Polaroid guestbook wall.",
     accessibilityNeeds: "Designated quiet conversation chillout zone, vibrant mocktail options for non-drinkers.",
     themeTitle: "Cyber Synth & 90s Neon Glow",
-    conceptSummary: "An electric 30th celebration pulsing with vintage synths, glowing neon installations, artisanal smash sliders, and signature custom mixology.",
+    conceptSummary: "An electric 30th celebration pulsing with vintage synths, glowing neon installations, artisanal street tacos, and signature custom mixology.",
     colorPalette: [
       { name: "Laser Violet", hex: "#8B5CF6", usage: "Neon sign backlight, ambient LED" },
       { name: "Electric Magenta", hex: "#EC4899", usage: "Drink stirrers, photo booth props" },
@@ -109,12 +109,12 @@ export const INITIAL_PRESETS = [
       { name: "Chrome Silver", hex: "#E2E8F0", usage: "Retro disco elements" }
     ],
     budgetCategories: [
-      { id: "cat-b1", name: "Loft Venue & Bar Staffing", allocated: 1600, spent: 1500, notes: "Includes audio gear and lighting rig" },
-      { id: "cat-b2", name: "Artisanal Sliders & Bar Package", allocated: 1700, spent: 1650, notes: "Taco & slider bar + 2 signature cocktails" },
-      { id: "cat-b3", name: "DJ & Sound Engineer", allocated: 800, spent: 750, notes: "4 hours live vinyl mixing" },
-      { id: "cat-b4", name: "Custom Neon Sign & Decor", allocated: 500, spent: 520, notes: "'Marcus 30' LED neon keepsake sign" },
-      { id: "cat-b5", name: "Polaroid Station & Favors", allocated: 250, spent: 230, notes: "Cameras, 150 film exposures, metallic pens" },
-      { id: "cat-b6", name: "Contingency Fund", allocated: 150, spent: 0, notes: "Extra ice and last-minute beverage replenishment" }
+      { id: "cat-b1", name: "Loft Venue & Bar Staffing", allocated: 45000, spent: 42000, notes: "Includes audio gear and lighting rig" },
+      { id: "cat-b2", name: "Artisanal Food & Beverage Package", allocated: 50000, spent: 52000, notes: "Taco bar + 2 signature mocktails/cocktails" },
+      { id: "cat-b3", name: "DJ & Sound Engineer", allocated: 25000, spent: 24000, notes: "4 hours live mixing" },
+      { id: "cat-b4", name: "Custom Neon Sign & Decor", allocated: 15000, spent: 14000, notes: "'Marcus 30' LED neon keepsake sign" },
+      { id: "cat-b5", name: "Polaroid Station & Favors", allocated: 10000, spent: 9500, notes: "Cameras, 150 film exposures, metallic pens" },
+      { id: "cat-b6", name: "Contingency Fund", allocated: 5000, spent: 0, notes: "Extra ice and last-minute replenishment" }
     ],
     tasks: [
       { id: "task-b1", title: "Secure Warehouse Loft Venue", phase: "2 Months Out", dueDate: "2026-09-28", status: "done", dependencies: [], isDelayed: false, delayDays: 0 },
@@ -130,7 +130,7 @@ export const INITIAL_PRESETS = [
         name: "Sub-Level Industrial Loft",
         status: "booked",
         contact: "marcus@sublevelspace.com",
-        quotes: [{ name: "Evening Party Rental", price: 1500, rating: 4.8, highlights: "Built-in PA, bar counter, 2 security guards" }]
+        quotes: [{ name: "Evening Party Rental", price: 42000, rating: 4.8, highlights: "Built-in PA, bar counter, 2 security guards" }]
       },
       {
         id: "vb-2",
@@ -138,7 +138,7 @@ export const INITIAL_PRESETS = [
         name: "DJ Pulsewave",
         status: "booked",
         contact: "pulsewave@beats.io",
-        quotes: [{ name: "4-Hour Vinyl & Digital Set", price: 750, rating: 4.9, highlights: "Includes wireless mic, 2 subwoofers" }]
+        quotes: [{ name: "4-Hour Live Set", price: 24000, rating: 4.9, highlights: "Includes wireless mic, 2 subwoofers" }]
       }
     ]
   },
@@ -148,12 +148,12 @@ export const INITIAL_PRESETS = [
     occasion: "Community Event",
     date: "2026-10-10",
     location: "Greenwood Town Common & Amphitheater",
-    currency: "$",
-    budget: 15000,
+    currency: "₹",
+    budget: 600000,
     guestCount: 450,
     venueType: "Public Park & Amphitheater",
     priorities: ["City Permitting & Crowd Safety", "Diverse Food Truck Vendors", "All-Ages Community Stage"],
-    culturalNuances: "Indigenous land acknowledgment, multicultural folk dance performances, bilingual town announcements.",
+    culturalNuances: "Community welcome blessing, multicultural folk performances, bilingual town announcements.",
     accessibilityNeeds: "ADA ramp to amphitheater stage, designated ASL interpreter for opening addresses, stroller & wheelchair parking zone.",
     themeTitle: "Autumn Harvest & Shared Roots",
     conceptSummary: "An inclusive, vibrant community gathering uniting families, local growers, artisans, and youth performers in an eco-friendly outdoor jubilee.",
@@ -165,18 +165,18 @@ export const INITIAL_PRESETS = [
       { name: "Midnight Navy", hex: "#1E293B", usage: "Volunteer staff t-shirts" }
     ],
     budgetCategories: [
-      { id: "cat-c1", name: "City Permits, EMS & Security", allocated: 3800, spent: 3600, notes: "Special event permit, 2 off-duty police officers, EMT crew" },
-      { id: "cat-c2", name: "Amphitheater Sound & Stage Rig", allocated: 3500, spent: 3500, notes: "Stage lighting, sound engineering for 6 local musical acts" },
-      { id: "cat-c3", name: "Porta-Johns, Handwash & Waste Stations", allocated: 2600, spent: 2500, notes: "Includes 2 ADA compliant units and compost collection" },
-      { id: "cat-c4", name: "Volunteer T-Shirts & Signage", allocated: 1800, spent: 1600, notes: "High-visibility vests, directional lawn signs, banners" },
-      { id: "cat-c5", name: "Children's Craft & Activity Tent", allocated: 1800, spent: 1750, notes: "Pumpkin painting, face painting, acoustic storytellers" },
-      { id: "cat-c6", name: "Safety & Weather Contingency", allocated: 1500, spent: 400, notes: "Used $400 for emergency canopy weights during wind" }
+      { id: "cat-c1", name: "City Permits, EMS & Security", allocated: 150000, spent: 140000, notes: "Special event permit, security personnel, EMT crew" },
+      { id: "cat-c2", name: "Amphitheater Sound & Stage Rig", allocated: 140000, spent: 140000, notes: "Stage lighting, sound engineering for local musical acts" },
+      { id: "cat-c3", name: "Sanitation, Handwash & Waste Stations", allocated: 100000, spent: 95000, notes: "Includes accessible units and eco waste collection" },
+      { id: "cat-c4", name: "Volunteer T-Shirts & Signage", allocated: 70000, spent: 65000, notes: "High-visibility vests, directional lawn signs, banners" },
+      { id: "cat-c5", name: "Children's Craft & Activity Tent", allocated: 80000, spent: 78000, notes: "Art painting, face painting, acoustic storytellers" },
+      { id: "cat-c6", name: "Safety & Weather Contingency", allocated: 60000, spent: 15000, notes: "Emergency canopy weights and safety buffers" }
     ],
     tasks: [
       { id: "task-c1", title: "Submit City Parks Department Permit Application", phase: "5 Months Out", dueDate: "2026-05-10", status: "done", dependencies: [], isDelayed: false, delayDays: 0 },
       { id: "task-c2", title: "Coordinate Police & EMT Safety Meeting", phase: "3 Months Out", dueDate: "2026-07-15", status: "done", dependencies: ["task-c1"], isDelayed: false, delayDays: 0 },
-      { id: "task-c3", title: "Curate 12 Local Food Trucks & Health Licenses", phase: "2 Months Out", dueDate: "2026-08-15", status: "done", dependencies: ["task-c2"], isDelayed: false, delayDays: 0 },
-      { id: "task-c4", title: "Confirm ASL Interpreter & Stage Accessibility", phase: "1 Month Out", dueDate: "2026-09-10", status: "in-progress", dependencies: ["task-c2"], isDelayed: false, delayDays: 0 },
+      { id: "task-c3", title: "Curate Local Food Vendors & Health Licenses", phase: "2 Months Out", dueDate: "2026-08-15", status: "done", dependencies: ["task-c2"], isDelayed: false, delayDays: 0 },
+      { id: "task-c4", title: "Confirm Stage Accessibility & Sound Protocols", phase: "1 Month Out", dueDate: "2026-09-10", status: "in-progress", dependencies: ["task-c2"], isDelayed: false, delayDays: 0 },
       { id: "task-c5", title: "Stage Build, Power Generator Inspection & Load-In", phase: "Day Of (6:00 AM)", dueDate: "2026-10-10", status: "todo", dependencies: ["task-c4"], isDelayed: false, delayDays: 0 }
     ],
     vendors: [
@@ -186,7 +186,7 @@ export const INITIAL_PRESETS = [
         name: "Valley Pro Audio & Stage",
         status: "booked",
         contact: "staging@valleyproaudio.com",
-        quotes: [{ name: "Community Festival Stage & PA", price: 3500, rating: 4.9, highlights: "Generator included, sound engineer on duty for full 8 hrs" }]
+        quotes: [{ name: "Community Festival Stage & PA", price: 140000, rating: 4.9, highlights: "Generator included, sound engineer on duty for full 8 hrs" }]
       },
       {
         id: "vc-2",
@@ -194,7 +194,7 @@ export const INITIAL_PRESETS = [
         name: "CleanSite Solutions",
         status: "booked",
         contact: "rentals@cleansite.com",
-        quotes: [{ name: "Festival Sanitation Bundle", price: 2500, rating: 4.7, highlights: "8 standard units, 2 ADA accessible, 4 dual handwash sinks" }]
+        quotes: [{ name: "Festival Sanitation Bundle", price: 95000, rating: 4.7, highlights: "8 standard units, 2 accessible units, 4 dual handwash sinks" }]
       }
     ]
   }
@@ -222,10 +222,13 @@ const EventContext = createContext(DEFAULT_EVENT_CONTEXT);
 
 export const EventProvider = ({ children }) => {
   const [events, setEvents] = useState(() => {
-    const saved = localStorage.getItem("CELEBRIFY_EVENTS_STATE");
+    const saved = localStorage.getItem("CELEBRIFY_EVENTS_STATE_V2");
     if (saved) {
       try {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved);
+        if (Array.isArray(parsed) && parsed.length > 0) {
+          return parsed.map(ev => ({ ...ev, currency: ev.currency === "$" ? "₹" : ev.currency }));
+        }
       } catch (e) {
         console.error("Error parsing saved events:", e);
       }
@@ -241,7 +244,7 @@ export const EventProvider = ({ children }) => {
 
   // Auto-save to localStorage
   useEffect(() => {
-    localStorage.setItem("CELEBRIFY_EVENTS_STATE", JSON.stringify(events));
+    localStorage.setItem("CELEBRIFY_EVENTS_STATE_V2", JSON.stringify(events));
   }, [events]);
 
   const showToast = (message, type = "success") => {

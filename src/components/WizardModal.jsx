@@ -40,8 +40,8 @@ export default function WizardModal({ isOpen, onClose }) {
   // Form State
   const [occasion, setOccasion] = useState("Wedding");
   const [title, setTitle] = useState("");
-  const [budget, setBudget] = useState(20000);
-  const [currency, setCurrency] = useState("$");
+  const [budget, setBudget] = useState(1000000);
+  const [currency, setCurrency] = useState("₹");
   const [guestCount, setGuestCount] = useState(100);
   const [venueType, setVenueType] = useState("Indoor Ballroom / Hall");
   const [date, setDate] = useState("2026-11-20");
@@ -229,8 +229,8 @@ export default function WizardModal({ isOpen, onClose }) {
                     className="select-field" 
                     style={{ width: '75px' }}
                   >
+                    <option value="₹">₹ INR (Rupees)</option>
                     <option value="$">$ USD</option>
-                    <option value="₹">₹ INR</option>
                     <option value="€">€ EUR</option>
                     <option value="£">£ GBP</option>
                   </select>

@@ -22,7 +22,7 @@ export default function VendorsView() {
   const [newCategory, setNewCategory] = useState("Catering");
   const [newVendorName, setNewVendorName] = useState("");
   const [newContact, setNewContact] = useState("");
-  const [newQuotePrice, setNewQuotePrice] = useState(2500);
+  const [newQuotePrice, setNewQuotePrice] = useState(50000);
 
   const handleDraftInquiry = async (vendor) => {
     setSelectedVendorForInquiry(vendor);

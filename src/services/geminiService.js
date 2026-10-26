@@ -327,8 +327,8 @@ export async function generateCreativeContent({ contentType, eventData, tone, cu
 // ==========================================
 
 function dynamicPlanGenerator(eventData) {
-  const total = Number(eventData.budget) || 15000;
-  const currency = eventData.currency || "$";
+  const total = Number(eventData.budget) || 500000;
+  const currency = eventData.currency || "₹";
   const occasion = (eventData.occasion || "Celebration").toLowerCase();
   const guests = Number(eventData.guestCount) || 80;
 
@@ -407,7 +407,7 @@ function dynamicPlanGenerator(eventData) {
 }
 
 function dynamicTradeoffGenerator(eventData, category, amount) {
-  const currency = eventData.currency || "$";
+  const currency = eventData.currency || "₹";
   const amt = amount || Math.round(eventData.budget * 0.1);
 
   return {
@@ -443,7 +443,7 @@ function dynamicTradeoffGenerator(eventData, category, amount) {
 }
 
 function dynamicQuoteAnalyzer(vendorType, quotes, eventData) {
-  const currency = eventData.currency || "$";
+  const currency = eventData.currency || "₹";
   if (!quotes || quotes.length === 0) {
     return {
       winnerVendorName: "Sample Vendor A",
