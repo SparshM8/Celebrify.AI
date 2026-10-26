@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEvent } from '../../context/EventContext';
 import { analyzeVendorQuotes } from '../../services/geminiService';
-import { Users, Mail, Sparkles, Check, ShieldCheck, DollarSign, Star, Copy, Plus, X } from 'lucide-react';
+import { Users, Mail, Sparkles, Check, ShieldCheck, IndianRupee, Star, Copy, Plus, X } from 'lucide-react';
 
 export default function VendorsView() {
   const { currentEvent, updateVendor, addVendor, showToast } = useEvent();

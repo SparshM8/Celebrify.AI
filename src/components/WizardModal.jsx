@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useEvent } from '../context/EventContext';
 import { generateTailoredEventPlan } from '../services/geminiService';
-import { Sparkles, Calendar, Users, DollarSign, Heart, Accessibility, ArrowRight, ArrowLeft, X, Check } from 'lucide-react';
+import { Sparkles, Calendar, Users, IndianRupee, Heart, Accessibility, ArrowRight, ArrowLeft, X, Check } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const OCCASIONS = [

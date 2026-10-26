@@ -8,17 +8,17 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
   const hasApiKey = Boolean(getApiKey());
 
   return (
-    <header className="no-print glass-panel" style={{
+    <header className="no-print" style={{
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      borderRadius: 0,
-      borderTop: 'none',
-      borderLeft: 'none',
-      borderRight: 'none',
-      background: 'rgba(10, 14, 23, 0.88)',
-      padding: '12px 24px',
-      marginBottom: '20px'
+      backdropFilter: 'blur(20px)',
+      WebkitBackdropFilter: 'blur(20px)',
+      background: 'rgba(5, 8, 17, 0.82)',
+      borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
+      padding: '14px 28px',
+      marginBottom: '20px',
+      transition: 'all 0.25s ease'
     }}>
       <div style={{
         maxWidth: '1440px',
@@ -29,96 +29,108 @@ export default function Navbar({ onOpenWizard, onOpenApiKey, onOpenSubmissionKit
         flexWrap: 'wrap',
         gap: '16px'
       }}>
-        {/* Brand / Title */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '14px' }}>
+        {/* Brand / Logo */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <div style={{
-            width: '42px',
-            height: '42px',
+            width: '40px',
+            height: '40px',
             borderRadius: '12px',
-            background: 'var(--gradient-celebration)',
+            background: 'var(--gradient-brand)',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 14px rgba(99, 102, 241, 0.4)'
+            boxShadow: '0 4px 18px rgba(139, 92, 246, 0.45)'
           }}>
-            <Sparkles size={22} color="#FFFFFF" />
+            <Sparkles size={20} color="#FFFFFF" />
           </div>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.02em', color: '#FFF' }}>
-                Celebrify<span style={{ color: 'var(--accent-gold)' }}>.AI</span>
+              <span style={{ fontFamily: 'var(--font-heading)', fontWeight: 800, fontSize: '1.25rem', letterSpacing: '-0.025em', color: '#FFF' }}>
+                Celebrify<span className="gradient-text">.AI</span>
               </span>
-              <span className="badge badge-indigo" style={{ fontSize: '0.68rem', padding: '2px 8px' }}>
+              <span className="pill-badge" style={{ fontSize: '0.68rem', padding: '2px 8px', color: '#C084FC', borderColor: 'rgba(192, 132, 252, 0.3)' }}>
                 Challenge 5
               </span>
             </div>
-            <div style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+            <div style={{ fontSize: '0.72rem', color: 'var(--text-muted)' }}>
               GenAI Celebration & Event Planner Assistant
             </div>
           </div>
         </div>
 
-        {/* Preset Selector */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
-          <Calendar size={18} color="var(--accent-gold)" />
-          <select 
-            aria-label="Select Active Event"
-            value={currentEventId} 
-            onChange={(e) => setCurrentEventId(e.target.value)}
-            className="select-field"
-            style={{ width: 'auto', minWidth: '240px', padding: '8px 12px', fontSize: '0.875rem' }}
-          >
-            {events.map(ev => (
-              <option key={ev.id} value={ev.id}>
-                {ev.occasion === 'Wedding' ? '💍 ' : ev.occasion.includes('Birthday') ? '🎂 ' : '🎪 '}
-                {ev.title}
-              </option>
-            ))}
-          </select>
+        {/* Quick Presets Pills */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
+          <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 600, marginRight: '4px' }}>
+            Presets:
+          </span>
+          {events.map(ev => {
+            const isSelected = ev.id === currentEventId;
+            const emoji = ev.occasion === 'Wedding' ? '💍' : ev.occasion.includes('Birthday') ? '🎂' : '🎪';
+            const shortTitle = ev.occasion === 'Wedding' ? 'Wedding (₹15L)' : ev.occasion.includes('Birthday') ? 'Birthday (₹1.5L)' : 'Community (₹6L)';
 
-          <button 
-            onClick={onOpenWizard}
-            className="btn btn-primary btn-sm"
-            title="Create tailored event with AI"
-          >
-            <PlusCircle size={16} />
-            <span>New Plan</span>
-          </button>
+            return (
+              <button
+                key={ev.id}
+                onClick={() => setCurrentEventId(ev.id)}
+                className="pill-badge"
+                style={{
+                  background: isSelected ? 'rgba(139, 92, 246, 0.22)' : 'rgba(255, 255, 255, 0.04)',
+                  borderColor: isSelected ? 'rgba(168, 85, 247, 0.6)' : 'var(--border-glass)',
+                  color: isSelected ? '#FFFFFF' : 'var(--text-secondary)',
+                  fontWeight: isSelected ? 700 : 500,
+                  boxShadow: isSelected ? '0 0 14px rgba(168, 85, 247, 0.35)' : 'none',
+                  cursor: 'pointer'
+                }}
+              >
+                <span>{emoji}</span>
+                <span>{shortTitle}</span>
+              </button>
+            );
+          })}
         </div>
 
-        {/* Global Action Tools */}
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          {/* API Key Modal Button */}
+        {/* Action Tools */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
+          {/* API Key Status Pill */}
           <button 
             onClick={onOpenApiKey}
-            className="btn btn-secondary btn-sm"
-            title="Configure Gemini API Key"
-            style={{ borderColor: hasApiKey ? 'rgba(16, 185, 129, 0.4)' : undefined }}
+            className="pill-badge"
+            style={{
+              background: hasApiKey ? 'rgba(16, 185, 129, 0.12)' : 'rgba(255, 255, 255, 0.04)',
+              borderColor: hasApiKey ? 'rgba(16, 185, 129, 0.35)' : 'var(--border-glass)',
+              cursor: 'pointer'
+            }}
+            title="Configure Gemini API Key (or use built-in offline reasoning engine)"
           >
-            <Key size={15} color={hasApiKey ? '#10B981' : 'var(--text-secondary)'} />
-            <span>{hasApiKey ? 'Gemini Live' : 'AI Engine (Ready)'}</span>
-            {hasApiKey && <CheckCircle2 size={13} color="#10B981" />}
+            <span className={hasApiKey ? "pulse-dot" : ""} style={{ width: '7px', height: '7px', borderRadius: '50%', background: hasApiKey ? '#10B981' : '#F59E0B' }} />
+            <span style={{ color: hasApiKey ? '#6EE7B7' : '#FCD34D', fontSize: '0.78rem' }}>
+              {hasApiKey ? 'Gemini Live' : 'AI Engine (Ready)'}
+            </span>
           </button>
 
           {/* Submission Kit Modal Button */}
           <button 
             onClick={onOpenSubmissionKit}
             className="btn btn-secondary btn-sm"
-            style={{ background: 'rgba(99, 102, 241, 0.12)', borderColor: 'rgba(99, 102, 241, 0.35)', color: '#C7D2FE' }}
+            style={{
+              background: 'rgba(99, 102, 241, 0.12)',
+              borderColor: 'rgba(99, 102, 241, 0.35)',
+              color: '#C7D2FE'
+            }}
             title="Copy texts for Hack2Skill submission form"
           >
-            <FileText size={15} color="#A5B4FC" />
+            <FileText size={14} color="#A5B4FC" />
             <span>Submission Kit</span>
           </button>
 
-          {/* Print Dossier Button */}
+          {/* New Plan Primary CTA */}
           <button 
-            onClick={onOpenPrint}
-            className="btn btn-secondary btn-sm"
-            title="Print or export complete Event Brief"
+            onClick={onOpenWizard}
+            className="btn btn-primary btn-sm"
+            title="Create tailored celebration plan with AI"
           >
-            <Printer size={15} />
-            <span>Export Brief</span>
+            <PlusCircle size={15} />
+            <span>Plan Celebration ↗</span>
           </button>
         </div>
       </div>

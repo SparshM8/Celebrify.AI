@@ -1,6 +1,6 @@
 import React from 'react';
 import { useEvent } from '../../context/EventContext';
-import { Printer, Calendar, Users, DollarSign, MapPin, Sparkles, CheckSquare, ShieldCheck, ArrowLeft } from 'lucide-react';
+import { Printer, Calendar, Users, IndianRupee, MapPin, Sparkles, CheckSquare, ShieldCheck, ArrowLeft } from 'lucide-react';
 
 export default function ExportBriefView({ onBack }) {
   const { currentEvent } = useEvent();

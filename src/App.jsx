@@ -14,7 +14,7 @@ import ScenarioSimulatorView from './components/views/ScenarioSimulatorView';
 import CreativeStudioView from './components/views/CreativeStudioView';
 import ExportBriefView from './components/views/ExportBriefView';
 
-import { LayoutDashboard, DollarSign, Clock, ShieldCheck, Sliders, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
+import { LayoutDashboard, IndianRupee, Clock, ShieldCheck, Sliders, Sparkles, CheckCircle2, AlertCircle } from 'lucide-react';
 
 function MainApp() {
   const { toast } = useEvent();
@@ -27,7 +27,7 @@ function MainApp() {
 
   const TABS = [
     { id: 'overview', label: 'Overview', icon: LayoutDashboard },
-    { id: 'budget', label: 'Budget & Tradeoffs', icon: DollarSign },
+    { id: 'budget', label: 'Budget & Tradeoffs (₹)', icon: IndianRupee },
     { id: 'timeline', label: 'Cascading Timeline', icon: Clock },
     { id: 'vendors', label: 'Vendor Matrix', icon: ShieldCheck },
     { id: 'scenario', label: 'What-If Simulator', icon: Sliders, isBonus: true },
@@ -47,13 +47,19 @@ function MainApp() {
       <main style={{ maxWidth: '1440px', width: '100%', margin: '0 auto', padding: '0 24px 60px 24px', flex: 1 }}>
         {/* Navigation Tabs (Hidden when viewing print brief) */}
         {activeTab !== 'export' && (
-          <nav aria-label="Main Navigation" className="no-print glass-panel" style={{
+          <nav aria-label="Main Navigation" className="no-print" style={{
             display: 'flex',
             alignItems: 'center',
             gap: '8px',
             padding: '8px 12px',
-            marginBottom: '24px',
-            overflowX: 'auto'
+            marginBottom: '20px',
+            overflowX: 'auto',
+            background: 'rgba(13, 19, 36, 0.75)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            border: '1px solid var(--border-glass)',
+            borderRadius: 'var(--radius-full)',
+            boxShadow: '0 8px 30px rgba(0, 0, 0, 0.45)'
           }}>
             {TABS.map(tab => {
               const Icon = tab.icon;
@@ -66,24 +72,25 @@ function MainApp() {
                   className={`btn ${isActive ? 'btn-primary' : 'btn-secondary'} btn-sm`}
                   style={{
                     position: 'relative',
-                    background: isActive ? 'var(--gradient-celebration)' : 'rgba(255, 255, 255, 0.04)',
-                    border: isActive ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid var(--border-glass)',
+                    background: isActive ? 'var(--gradient-brand)' : 'transparent',
+                    border: isActive ? '1px solid rgba(255, 255, 255, 0.3)' : '1px solid transparent',
                     color: isActive ? '#FFFFFF' : 'var(--text-secondary)',
-                    boxShadow: isActive ? '0 4px 16px rgba(99, 102, 241, 0.45)' : 'none',
-                    padding: '8px 16px',
-                    borderRadius: 'var(--radius-md)'
+                    boxShadow: isActive ? '0 4px 18px rgba(139, 92, 246, 0.5)' : 'none',
+                    padding: '8px 18px',
+                    borderRadius: 'var(--radius-full)',
+                    fontSize: '0.85rem'
                   }}
                 >
-                  <Icon size={16} />
+                  <Icon size={15} />
                   <span>{tab.label}</span>
                   {tab.isBonus && (
                     <span style={{
-                      fontSize: '0.65rem',
+                      fontSize: '0.62rem',
                       background: 'rgba(245, 158, 11, 0.25)',
                       color: '#FCD34D',
-                      border: '1px solid rgba(245, 158, 11, 0.4)',
-                      borderRadius: '4px',
-                      padding: '1px 5px',
+                      border: '1px solid rgba(245, 158, 11, 0.45)',
+                      borderRadius: 'var(--radius-full)',
+                      padding: '1px 6px',
                       marginLeft: '4px',
                       fontWeight: 700
                     }}>
@@ -102,7 +109,12 @@ function MainApp() {
         )}
 
         {/* Dynamic Views */}
-        {activeTab === 'overview' && <OverviewDashboard onSwitchTab={setActiveTab} />}
+        {activeTab === 'overview' && (
+          <OverviewDashboard 
+            onSwitchTab={setActiveTab} 
+            onOpenWizard={() => setIsWizardOpen(true)} 
+          />
+        )}
         {activeTab === 'budget' && <BudgetView />}
         {activeTab === 'timeline' && <TimelineView />}
         {activeTab === 'vendors' && <VendorsView />}

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useEvent } from '../../context/EventContext';
 import { generateTradeoffSuggestions } from '../../services/geminiService';
-import { DollarSign, TrendingDown, Sparkles, Check, AlertCircle, Plus, Edit2, ShieldAlert } from 'lucide-react';
+import { IndianRupee, TrendingDown, Sparkles, Check, AlertCircle, Plus, Edit2, ShieldAlert } from 'lucide-react';
 
 export default function BudgetView() {
   const { currentEvent, updateBudgetCategory, addBudgetCategory, showToast } = useEvent();
@@ -78,7 +78,7 @@ export default function BudgetView() {
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '16px', marginBottom: '20px' }}>
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '8px', color: 'var(--accent-gold)', fontSize: '0.825rem', fontWeight: 600 }}>
-              <DollarSign size={16} />
+              <IndianRupee size={16} />
               <span>Mandatory Criterion #2: Dynamic Constraint & Tradeoff Engine</span>
             </div>
             <h2 style={{ fontSize: '1.6rem', marginTop: '4px' }}>
