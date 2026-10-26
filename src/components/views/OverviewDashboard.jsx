@@ -56,7 +56,15 @@ export default function OverviewDashboard({ onSwitchTab }) {
               </span>
             </div>
 
-            <h1 style={{ fontSize: '2.1rem', marginBottom: '8px', lineHeight: 1.2 }}>
+            <h1 style={{
+              fontSize: '2.3rem',
+              marginBottom: '10px',
+              lineHeight: 1.2,
+              background: 'linear-gradient(135deg, #FFFFFF 65%, #FDE68A 100%)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              textShadow: '0 2px 20px rgba(245, 158, 11, 0.2)'
+            }}>
               {currentEvent.title}
             </h1>
 

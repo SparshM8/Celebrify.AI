@@ -1,8 +1,6 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
 import { calculateCascadingTaskDelays, generateTailoredEventPlan } from '../services/geminiService';
 
-const EventContext = createContext();
-
 export const INITIAL_PRESETS = [
   {
     id: "preset-wedding",
@@ -202,6 +200,26 @@ export const INITIAL_PRESETS = [
   }
 ];
 
+export const DEFAULT_EVENT_CONTEXT = {
+  events: INITIAL_PRESETS,
+  currentEvent: INITIAL_PRESETS[0],
+  currentEventId: INITIAL_PRESETS[0].id,
+  setCurrentEventId: () => {},
+  updateCurrentEvent: () => {},
+  addEvent: () => {},
+  updateBudgetCategory: () => {},
+  addBudgetCategory: () => {},
+  toggleTaskStatus: () => {},
+  reportTaskDelay: () => {},
+  addTask: () => {},
+  updateVendor: () => {},
+  addVendor: () => {},
+  toast: null,
+  showToast: () => {}
+};
+
+const EventContext = createContext(DEFAULT_EVENT_CONTEXT);
+
 export const EventProvider = ({ children }) => {
   const [events, setEvents] = useState(() => {
     const saved = localStorage.getItem("CELEBRIFY_EVENTS_STATE");
@@ -359,4 +377,26 @@ export const EventProvider = ({ children }) => {
   );
 };
 
-export const useEvent = () => useContext(EventContext);
+export const useEvent = () => {
+  const context = useContext(EventContext);
+  if (!context) {
+    return {
+      events: INITIAL_PRESETS,
+      currentEvent: INITIAL_PRESETS[0],
+      currentEventId: INITIAL_PRESETS[0].id,
+      setCurrentEventId: () => {},
+      updateCurrentEvent: () => {},
+      addEvent: () => {},
+      updateBudgetCategory: () => {},
+      addBudgetCategory: () => {},
+      toggleTaskStatus: () => {},
+      reportTaskDelay: () => {},
+      addTask: () => {},
+      updateVendor: () => {},
+      addVendor: () => {},
+      toast: null,
+      showToast: () => {}
+    };
+  }
+  return context;
+};
