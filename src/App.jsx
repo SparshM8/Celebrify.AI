@@ -4,6 +4,7 @@ import Navbar from './components/Navbar';
 import WizardModal from './components/WizardModal';
 import ApiKeyModal from './components/ApiKeyModal';
 import SubmissionKitModal from './components/SubmissionKitModal';
+import JudgeTourBar from './components/JudgeTourBar';
 
 import OverviewDashboard from './components/views/OverviewDashboard';
 import BudgetView from './components/views/BudgetView';
@@ -90,6 +91,11 @@ function MainApp() {
               );
             })}
           </nav>
+        )}
+
+        {/* Evaluator & Judge Quick Tour Bar */}
+        {activeTab !== 'export' && (
+          <JudgeTourBar onSelectTab={setActiveTab} onOpenPrint={() => setActiveTab('export')} />
         )}
 
         {/* Dynamic Views */}
