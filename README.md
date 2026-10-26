@@ -36,7 +36,7 @@ Moving far beyond superficial conversational chatbots, Celebrify AI functions as
 - **Styling**: Tailored Modern CSS Design System (accessible contrast, glassmorphism, responsive mobile/desktop, print stylesheet)
 - **Icons**: Lucide React (vector-based, zero heavy binary assets)
 - **Testing**: Vitest with `@testing-library/react` and `jsdom`
-- **AI Integration**: Google Gemini API (Gemini 1.5 Flash via REST API with structured JSON output schemas) backed by an offline dynamic reasoning engine.
+- **AI Integration**: Google Gemini API (Gemini 3.8 Flash via REST API with structured JSON output schemas) backed by an offline dynamic reasoning engine.
 
 ### Zero-Hardcoding Security Architecture
 - **Zero Credentials in Git**: No API keys or secrets exist in the codebase, `.env`, or commit history.

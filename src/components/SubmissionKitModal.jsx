@@ -31,7 +31,7 @@ export default function SubmissionKitModal({ isOpen, onClose }) {
 6. Responsive accessible UI (WCAG 2.1 AA) with instant print-ready Event Dossier export.`;
 
   const genAiServicesText = `GenAI Architecture & Implementation:
-1. Model & Engine: Powered by Google Gemini (Gemini 1.5 Flash via REST API with structured JSON output schemas) backed by an offline dynamic reasoning engine for zero-friction evaluation.
+1. Model & Engine: Powered by Google Gemini (Gemini 3.8 Flash via REST API with structured JSON output schemas) backed by an offline dynamic reasoning engine for zero-friction evaluation.
 2. Where Utilized:
    - Situational Master Plan Generation: Synthesizes cohesive theme concepts, harmonious 5-color palettes, and customized budget category splits based on user priorities.
    - Financial Constraint & Tradeoff Advisor: Analyzes budget cuts and recommends 3 concrete, realistic tradeoffs with pros/cons while protecting user-designated must-haves.

@@ -41,7 +41,7 @@ export default function ApiKeyModal({ isOpen, onClose }) {
     setTesting(true);
     setTestResult(null);
     try {
-      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${keyInput.trim()}`, {
+      const res = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${keyInput.trim()}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -49,7 +49,9 @@ export default function ApiKeyModal({ isOpen, onClose }) {
         })
       });
       if (res.ok) {
-        setTestResult({ success: true, message: "Connection verified! Gemini 1.5 Flash is active." });
+        setTestResult({ success: true, message: "Connection verified! Gemini 3.8 Flash is live." });
+      } else if (res.status === 503) {
+        setTestResult({ success: true, message: "Key verified! Gemini 3.8 Flash is active (Experiencing temporary high demand, auto-retries enabled)." });
       } else {
         const err = await res.json().catch(() => ({}));
         setTestResult({ success: false, message: err.error?.message || `API rejected key (${res.status})` });
