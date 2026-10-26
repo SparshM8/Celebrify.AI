@@ -11,7 +11,11 @@ const GEMINI_API_ENDPOINT = "https://generativelanguage.googleapis.com/v1beta/mo
  * Retrieves the user-provided Gemini API key securely from sessionStorage
  */
 export const getApiKey = () => {
-  return sessionStorage.getItem("CELEBRIFY_GEMINI_API_KEY") || "";
+  return (
+    sessionStorage.getItem("CELEBRIFY_GEMINI_API_KEY") ||
+    import.meta.env.VITE_GEMINI_API_KEY ||
+    ""
+  );
 };
 
 export const setApiKey = (key) => {
